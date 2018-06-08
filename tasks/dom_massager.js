@@ -14,7 +14,7 @@ var util = require('util');
 
 module.exports = function(grunt) {
 
-	grunt.registerMultiTask('dom_massager', 'Manipulate the dom using cheerio via grunt task', function() {
+	grunt.registerMultiTask('domMassager', 'Manipulate the dom using cheerio via grunt task', function() {
 
 		var options = this.options({
 			writeDom: false,
