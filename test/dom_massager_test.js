@@ -1,6 +1,7 @@
 'use strict';
 
 var grunt = require('grunt');
+const fs = require('fs');
 
 /*
 	======== A Handy Little Nodeunit Reference ========
@@ -49,6 +50,18 @@ exports.dom_massager = {
 		var actual = grunt.file.read('tmp/test.html');
 		var expected = grunt.file.read('test/expected/test.html');
 		test.equal(actual, expected, 'should match manipulated nodes');
+
+		test.done();
+	},
+	write_file_test: function(test) {
+		test.expect(1);
+		try {
+			fs.accessSync('tmp/output.html');
+			test.ok(true);
+		}
+		catch (err) {
+			test.ok(false, `'tmp/output.html' doesn't exist`);
+		}
 
 		test.done();
 	},

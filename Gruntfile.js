@@ -88,6 +88,20 @@ module.exports = function(grunt) {
 					'tmp/': ['test/fixtures/test.html'],
 				},
 			},
+
+			write_file_test: {
+				options: {
+					htmlOutput: 'tmp/output.html',
+					selectors: {
+						".append": {
+							action: "html",
+						},
+					},
+				},
+				files: {
+					'tmp/': ['test/fixtures/test.html'],
+				},
+			}
 		},
 
 		// Unit tests.

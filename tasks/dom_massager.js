@@ -22,8 +22,10 @@ module.exports = function(grunt) {
 			normalizeWhitespace: false,
 			decodeEntities: true,
 			selectors: {},
-			cheerioHook: null
+			cheerioHook: null,
+			htmlOutput: null,
 		});
+		// console.log('options', options);
 
 		this.files.forEach(function(f) {
 
@@ -68,6 +70,9 @@ module.exports = function(grunt) {
 
 						if (opts.output) {
 							grunt.config.set(opts.output, output);
+						}
+						if (options.htmlOutput) {
+							grunt.file.write(options.htmlOutput, output);
 						}
 
 					} else {
