@@ -9,6 +9,7 @@
 'use strict';
 
 var cheerio = require('cheerio');
+var pretty = require('pretty');
 var path = require('path');
 var util = require('util');
 
@@ -72,7 +73,13 @@ module.exports = function(grunt) {
 							grunt.config.set(opts.output, output);
 						}
 						if (options.htmlOutput) {
-							grunt.file.write(options.htmlOutput.replace(/^\s*/gm, ''), output);
+							var htmlString = output;
+							var dest = options.htmlOutput;
+							if (typeof options.htmlOutput === 'object' && options.htmlOutput.pretty) {
+								htmlString = pretty(htmlString, { ocd: true });
+								dest = options.htmlOutput.dest;
+							}
+							grunt.file.write(dest, htmlString);
 						}
 
 					} else {

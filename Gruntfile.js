@@ -91,7 +91,10 @@ module.exports = function(grunt) {
 
 			write_file_test: {
 				options: {
-					htmlOutput: 'tmp/output.html',
+					htmlOutput: {
+						dest: 'tmp/output.html',
+						pretty: true,
+					},
 					selectors: {
 						".append": {
 							action: "html",
