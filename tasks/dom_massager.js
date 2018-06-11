@@ -72,7 +72,7 @@ module.exports = function(grunt) {
 							grunt.config.set(opts.output, output);
 						}
 						if (options.htmlOutput) {
-							grunt.file.write(options.htmlOutput, output);
+							grunt.file.write(options.htmlOutput.replace(/^\s*/gm, ''), output);
 						}
 
 					} else {
